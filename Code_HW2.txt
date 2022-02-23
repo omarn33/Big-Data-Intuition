@@ -1,6 +1,5 @@
 index.js FOR BOTH INSTANCES
 
-```
 const mysql = require('mysql2');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -13,8 +12,17 @@ var connection = mysql.createConnection({
         database : 'mydb'
 });
 
+var connection1 = mysql.createConnection({
+        host : '35.188.101.99',
+        user : 'master',
+        password : 'masterpassword',
+        database : 'mydb'
+});
+
 // Establish Connection
 connection.connect();
+connection1.connect();
+
 // Initialize Web Application
 const app = express();
 app.use(bodyParser.json());
@@ -33,16 +41,17 @@ app.post('/register', (req, res) => {
         // Prevent SQL Injections
         //  n = n.replace(/^[0-9\s]*|[+*\r\n]/g, '');
         // Insert name
+       // Insert name
         query = `INSERT INTO Users (username) VALUES ('`+n+`');`;
         console.log('query: ' + query);
         // Run Query
         connection.query(query, (e, r, f) => {
                 console.log('result: ' + r);
-                res.json({
-                        'message' : 'Add successful.',
-                        'user' : r
-                        });
         });
+        connection1.query(query, (e, r, f) => {
+                console.log('result1: ' + r);
+        });
+        res.json({"Message": "Add name successfully" });
 });
 
 // Handle Display  Operations to Database
@@ -59,7 +68,7 @@ app.get('/list', (req, res) => {
                         usernames[idx] = r[idx].username;
                 }
                 res.json({
-			 "users": usernames 
+                         "users": usernames 
                        });
         });
 });
@@ -75,17 +84,17 @@ app.post('/clear', (req, res) => {
                         'message' : 'All users removed.',
                         });
         });
+
+        connection1.query(query, (e, r, f) => {
+                console.log('cleared');
+        });
 });
 
 // Establish a HTTP Connection
 var http = require('http').Server(app);
-
 const PORT = 80;
 http.listen(PORT, function() {
         console.log('Listening');
 });
-```
-				
-				
-				
 
+	
