@@ -59,7 +59,7 @@ app.get('/list', (req, res) => {
                         usernames[idx] = r[idx].username;
                 }
                 res.json({
-						"users": usernames 
+			 "users": usernames 
                        });
         });
 });
