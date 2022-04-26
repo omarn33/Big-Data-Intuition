@@ -1,1 +1,1 @@
-For HW4 Code, please see the Code_HW4 Folder.
+For HW4 Code, please see the HiveQL/Code_HW4 Folder.
