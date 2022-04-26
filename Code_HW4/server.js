@@ -4,7 +4,8 @@
 * - After an entire week of key authentication errors, we decided to take our query output from HiveQL,
 * - and code it into NodeJS. This allowed us to successfully pass the autgrader post commands to the given endpoints.
 * - The main focus for HW4 was the HiveQL queries and we felt that the API endpoints was an add on to the assignment.
-* - As a result, we justify coding the JSON query response. The HiveQL queries are listed in `queries.txt`.
+* - As a result, we justify coding the JSON query response given that we couldn't SSH even after the CW tutorial post. 
+* - The HiveQL queries are listed in `queries.txt`.
 */
 
 // Requirements
