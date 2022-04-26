@@ -1,13 +1,13 @@
 # HiveQL Queries
 
-## /results:
+## /results
 ```
 SELECT * 
 FROM search_log2 
 WHERE search_term = [SEARCH_TERM];
 ```
 
-## /trends:
+## /trends
 ```
 SELECT search_term, SUM(clicks) AS clicks
 FROM search_log2
