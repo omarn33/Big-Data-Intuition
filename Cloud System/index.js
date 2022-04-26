@@ -1,4 +1,4 @@
-index.js FOR BOTH INSTANCES
+// index.js FOR BOTH INSTANCES
 
 const mysql = require('mysql2');
 const express = require('express');
